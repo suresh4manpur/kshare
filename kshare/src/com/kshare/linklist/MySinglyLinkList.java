@@ -33,6 +33,7 @@ class Node {
 
 class MyLinkList {
 	Node first;
+	int size;
 
 	public void addAtLast(int data) {
 		Node newnode = new Node(data);
@@ -48,6 +49,7 @@ class MyLinkList {
 			// current --> last element
 			current.next = newnode;
 		}
+		size++;
 	}
 
 	public void addBefore(int srcNode, int destNode) {
@@ -72,6 +74,7 @@ class MyLinkList {
 			}
 
 		}
+		size++;
 		// First -->A --> B --> C | D before B A --> D -->B --> C
 	}
 
@@ -97,6 +100,7 @@ class MyLinkList {
 		}
 		System.out.println(strBuf.toString());
 	}
+	
 
 	public boolean isListEmpty() {
 		if (first == null) {
