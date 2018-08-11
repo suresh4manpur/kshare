@@ -82,9 +82,16 @@ class MyLinkList {
 
 	}
 
-	public void find(int target) {
-
-	}
+	public Integer get(int index) {
+		if(index > size)
+			throw new IndexOutOfBoundsException();
+		Node current = first;
+		while( index > 1 ){
+			current = current.next;
+			index--;
+		}
+		return current.data ;
+		}
 
 	public void remove(int target) {
 
