@@ -34,7 +34,10 @@ public class DoublyLinkedList<K> {
 			throw new Exception("Target not found.");
 		}
 		if(current == header){
+			Node<K> temp = header;
 			current = current.next;
+			temp.next = null;
+			temp = null;
 			header = current;
 		}else if(current.next == null){
 			current.prev.next = null;
