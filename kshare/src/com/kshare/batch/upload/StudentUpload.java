@@ -53,7 +53,6 @@ public class StudentUpload {
 		String sql_insert = "INSERT INTO CUSTOMER (CUST_NO,NAME,AGE,GENDER,BIRTH_DT,EMAIL_ID,ADDRESS) VALUES(?,?,?,?,?,?,?)";
 		PreparedStatement ps = null;
 		System.out.println("Adding customer records in DB..");
-		int count = 0;
 		CustomerResponse customerRes = null;
 		try {
 			con.setAutoCommit(false);
@@ -81,12 +80,10 @@ public class StudentUpload {
 				e1.printStackTrace();
 			}
 		} finally {
-
 			if (null != ps) {
 				try {
 					ps.close();
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}

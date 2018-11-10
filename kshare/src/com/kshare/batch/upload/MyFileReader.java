@@ -15,9 +15,8 @@ import java.util.List;
 import com.kshare.batch.upload.model.Customer;
 
 public class MyFileReader {
-	public List<Customer> readFromFile(File fileName) {
+	public void readFromFile(File fileName) {
 		BufferedReader fileReader = null;
-		List<Customer> custList = new ArrayList<>();
 		String customerInfo = "";
 
 		int CUSTOMER_NAME = 0;
@@ -26,22 +25,52 @@ public class MyFileReader {
 		int CUSTOMER_DOB = 3;
 		int CUSTOMER_EMAIL = 4;
 		int CUSTOMER_ADDRESS = 5;
+		Connection con = ConnectionDispenser.getConnection();
+
 		try {
 			fileReader = new BufferedReader(new FileReader(fileName));
 			// Skips line one for header : it is happy scenario
 			fileReader.readLine();
+			int count = 1;
+			StudentUpload upload = new StudentUpload();
+			List<Customer> customerInCunk = new ArrayList<>();
 			while ((customerInfo = fileReader.readLine()) != null) {
-				String customerArray[] = customerInfo.split(FileGeneratorManager.COMMA_DELIMITER);
+				String customerArray[] = customerInfo.split(FileConstants.COMMA_DELIMITER);
 				if (customerArray.length > 0) {
 
 					Customer customer = new Customer(customerArray[CUSTOMER_NAME],
 							Integer.parseInt(customerArray[CUSTOMER_AGE]), customerArray[CUSTOMER_GENDER],
 							FileUtil.parseIntoDate(customerArray[CUSTOMER_DOB]), customerArray[CUSTOMER_EMAIL],
 							customerArray[CUSTOMER_ADDRESS]);
-					custList.add(customer);
-					System.out.println(customer);
+					customerInCunk.add(customer);
+
+						if (count == FileConstants.DB_COMMIT_FREQUENCY) {
+							
+							long startTime = System.currentTimeMillis();
+							long currentTime = 0;
+							long diffTime = 0;
+							// Below logic will busy in loop till 1 second
+							System.out.println(Thread.currentThread().getName() + " - Processing the task..");
+							for (;;) {
+								currentTime = System.currentTimeMillis();
+								diffTime = (currentTime - startTime); // converted
+
+								if (diffTime > 200) {
+									break;
+								}
+							}
+							
+							upload.writeToDB(customerInCunk, con);
+							customerInCunk.clear();
+							count = 0;
+							customerInCunk = new ArrayList<>();
+						}
+						count++;
+						System.out.println(customer);
+
+					}
+					
 				}
-			}
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -58,7 +87,6 @@ public class MyFileReader {
 				e.printStackTrace();
 			}
 		}
-		return custList;
 	}
 
 	private static int getCustomerIdx(Connection con) {

@@ -19,46 +19,44 @@ public class CustomerFileGenerator {
 }
 
 class FileGeneratorManager {
-	static  final String COMMA_DELIMITER = ",";
-	static  final String NEW_LINE_SEPARATOR = "\n";
-	public  final String HEADER_ENTRIES = "Name,Age,Gender,Date_Of_Birth,Email_Id,Address";
-	public static final String INCOMING_AREA_PATH = "E:\\skillhouse\\kshare\\kshare\\incoming_area\\";
-	private final int VOLUME_SIZE = 50000 *10;
-	private final int COMMIT_FREQUENCY = 100;
 
-	public File createFile() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Please enter the fileName: ");
-		String fileName = INCOMING_AREA_PATH + sc.next() + ".txt";
-		File file = new File(fileName);
-		try {
-			if (file.createNewFile()) {
-				System.out.println("File is created !!");
-				// addHeaderToFile(file);
-			} else {
-				System.out.println("File already exists !!");
-			}
-			Customer cust = null;
-			List<Customer> customers = new ArrayList<>();
-			for (int i = 0; i < VOLUME_SIZE; i++) {
-				cust = new Customer("Suresh", 34, "M", new Date(System.currentTimeMillis()), i + "sk@gmail.com",
+	public final String HEADER_ENTRIES = "Name,Age,Gender,Date_Of_Birth,Email_Id,Address";
+	public static final String INCOMING_AREA_PATH = "E:\\skillhouse\\kshare\\kshare\\incoming_area\\";
+	private final int VOLUME_SIZE = 100000;
+	private final int COMMIT_FREQUENCY = 500;
+
+	public void createFile() {
+		int fileSize = 5;
+		File[] files = new File[fileSize];
+		// String[] fileNames = new String[fileSize];
+
+		String fileName = null;
+
+		/*
+		 * for(int i=0; i < files.length ; i++){ fileName = INCOMING_AREA_PATH
+		 * +"File"+i+".txt" ; files[i] = new File(fileName); }
+		 */
+
+		Customer cust = null;
+		List<Customer> customers = null;
+		int count = 1;
+		for (int i = 0; i < files.length; i++) {
+			fileName = INCOMING_AREA_PATH + "File" + i + ".txt";
+			files[i] = new File(fileName);
+			customers = new ArrayList<>();
+			for (int j = 0; j < VOLUME_SIZE; j++) {
+				cust = new Customer("Suresh", 34, "M", new Date(System.currentTimeMillis()), count + "sk@gmail.com",
 						"MyAddress");
 				customers.add(cust);
+				count++;
 			}
-			writeToFile(file, customers);
-		} catch (IOException e) {
-			
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			if (null != sc) {
-				sc.close();
-			}
+			writeToFile(files[i], customers);
+
 		}
-		return file;
+
 	}
 
-	private  void addHeaderToFile(File file) {
+	private void addHeaderToFile(File file) {
 		FileWriter fileWriter = null;
 		try {
 			fileWriter = new FileWriter(file, true);
@@ -81,21 +79,21 @@ class FileGeneratorManager {
 		FileWriter fileWriter = null;
 		try {
 			fileWriter = new FileWriter(file, true);
-			fileWriter.append(NEW_LINE_SEPARATOR);
+			fileWriter.append(FileConstants.NEW_LINE_SEPARATOR);
 			int count = 1;
 			for (Customer customer : custList) {
 				fileWriter.append(String.valueOf(customer.getName()));
-				fileWriter.append(COMMA_DELIMITER);
+				fileWriter.append(FileConstants.COMMA_DELIMITER);
 				fileWriter.append(String.valueOf(customer.getAge()));
-				fileWriter.append(COMMA_DELIMITER);
+				fileWriter.append(FileConstants.COMMA_DELIMITER);
 				fileWriter.append(String.valueOf(customer.getGender()));
-				fileWriter.append(COMMA_DELIMITER);
+				fileWriter.append(FileConstants.COMMA_DELIMITER);
 				fileWriter.append(String.valueOf(customer.getDateOfBirth()));
-				fileWriter.append(COMMA_DELIMITER);
+				fileWriter.append(FileConstants.COMMA_DELIMITER);
 				fileWriter.append(String.valueOf(customer.getEmail()));
-				fileWriter.append(COMMA_DELIMITER);
+				fileWriter.append(FileConstants.COMMA_DELIMITER);
 				fileWriter.append(String.valueOf(customer.getAddress()));
-				fileWriter.append(NEW_LINE_SEPARATOR);
+				fileWriter.append(FileConstants.NEW_LINE_SEPARATOR);
 
 				if (count == COMMIT_FREQUENCY) {
 					fileWriter.flush();
