@@ -1,8 +1,10 @@
 package com.kshare.tree;
 
+import org.hamcrest.core.IsCollectionContaining;
+
 public class BinarySearchTree {
 
-	public static Node root;
+	public  Node root;
 
 	public BinarySearchTree() {
 
@@ -220,7 +222,7 @@ public class BinarySearchTree {
 
 			parent = current;
 
-			if (id < current.data) {
+			if (id <= current.data) {
 
 				current = current.left;
 
@@ -365,45 +367,76 @@ public class BinarySearchTree {
 
 	}
 
+	public  boolean isContinusousTree(Node node){
+		Node current = node;
+		
+		if(current != null){
+			if( current.left != null){
+				if( Math.abs(current.data - current.left.data) != 1){
+					return false;
+				}
+				if(!isContinusousTree(current.left)){
+					return false;
+				}
+			}
+			if( current.right != null){
+				if( Math.abs(current.data - current.right.data) != 1){
+					return false;
+				}
+				if(!isContinusousTree(current.right)){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+
 	public static void main(String arg[]) {
 
 		BinarySearchTree b = new BinarySearchTree();
 
-		b.insert(3);
-		b.insert(8);
-
-/*		b.insert(1);
-		b.insert(4);
-		b.insert(6);
+/*		b.insert(3);
 		b.insert(2);
-		b.insert(10);
-		b.insert(9);
-
-		b.insert(20);
-		b.insert(25);
-		b.insert(15);
-		b.insert(16);*/
+		b.insert(1);
+		b.insert(3);
+		b.insert(4);
+		b.insert(5);*/
+		
+/*		b.insert(7);
+		b.insert(5);
+		b.insert(6);
+		b.insert(4);
+		b.insert(8);
+		b.insert(10);*/
+		
+		b.insert(0);
+		b.insert(2);
+		b.insert(3);
+		b.insert(4);
+		b.insert(5);
+		b.insert(6);
 
 		System.out.println("Original Tree : ");
+		b.display(b.root);
+		System.out.println("");
+		boolean isContinuous = b.isContinusousTree(b.root);
+		if(isContinuous){
+			System.out.println("BST is continuous!");
+		}else{
+			System.out.println("BST is not continuous!");
+		}
 
+	/*	System.out.println("indorder traversal..");
 		b.display(b.root);
 
 		System.out.println("");
-
-		System.out.println("Check whether Node with value 4 exists : " + b.find(4));
-
 		
-		  b.delete(3);
-	
-		  /*
-		   b.delete(4);
+		System.out.println("Zigzag traversal..");
+		
+		ZigZagTraversalnBST zzTraversal = new ZigZagTraversalnBST();
+		
+		zzTraversal.traverse(b.root);*/
 
-		   b.delete(10);
-		 */
-
-		 
-
-		b.display(root);
 
 	}
 
