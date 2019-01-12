@@ -13,7 +13,7 @@ public class BinaryTreeFromPreOrderAndInOrderArray {
 
 	public Node buildTree(int ioStart, int size){
 		
-		int index = findIndex
+		//int index = findIndex
 		return null;
 	}
 	public int findIndex( int startPos){
