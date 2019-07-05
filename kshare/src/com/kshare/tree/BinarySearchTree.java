@@ -1,6 +1,5 @@
 package com.kshare.tree;
 
-import org.hamcrest.core.IsCollectionContaining;
 
 public class BinarySearchTree {
 
