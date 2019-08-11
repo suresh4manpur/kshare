@@ -2,6 +2,8 @@ package com.kshare.starvation;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -13,9 +15,10 @@ public class StarvationDemo {
     public static void main (String[] args) {
         JFrame frame = createFrame();
         frame.setLayout(new FlowLayout(FlowLayout.LEFT));
+        Lock lock = new ReentrantLock(true);
 
         for (int i = 0; i < 5; i++) {
-            ProgressThread progressThread = new ProgressThread();
+            ProgressThread progressThread = new ProgressThread(lock);
             frame.add(progressThread.getProgressComponent());
             progressThread.start();
         }
@@ -33,8 +36,9 @@ public class StarvationDemo {
 
     private static class ProgressThread extends Thread {
         JProgressBar progressBar;
-
-        ProgressThread () {
+        Lock lock;
+        ProgressThread (Lock lock) {
+        	this.lock = lock;
             progressBar = new JProgressBar();
             progressBar.setString(this.getName());
             progressBar.setStringPainted(true);
@@ -49,7 +53,8 @@ public class StarvationDemo {
 
             int c = 0;
             while (true) {
-                synchronized (sharedObj) {
+               // synchronized (sharedObj) {
+            	lock.lock();
                     if (c == 100) {
                         c = 0;
                     }
@@ -59,8 +64,10 @@ public class StarvationDemo {
                         Thread.sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
-                    }
-                }
+                    }finally {
+						lock.unlock();
+					}
+            //    }
             }
         }
     }

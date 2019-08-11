@@ -1,4 +1,4 @@
-package com.kshare.thread.concurrency;
+ package com.kshare.thread.concurrency;
 
 public class ProducerConsumerManager {
 	public static void main(String[] args) {

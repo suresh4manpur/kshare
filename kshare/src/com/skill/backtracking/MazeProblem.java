@@ -29,19 +29,9 @@ public class MazeProblem {
 		if(r == maze.length-1 && c == maze.length-1){ //reached destination
 			List<Point> path =new ArrayList(recList);
 			result.add(path);
-			recList.remove(recList.size()-1);
-			return;
+			
 		}else{
-			//only right
-			//only left
-			
-			// currently we are on Point(r,c)
-			
-			//collection of possible moves from Point(r,c)
-/*			for(Move move : moves){
-				getPath(move);
-				
-			}*/
+
 			
 			//go right 
 			if(c+1 < maze.length && maze[r][c+1] == 0)
@@ -51,9 +41,9 @@ public class MazeProblem {
 			if(r+1 < maze.length && maze[r+1][c] == 0)
 			getPaths(maze, recList, r+1, c);
 			
-			recList.remove(recList.size()-1);
+			 
 		}
-		
+		recList.remove(recList.size()-1);
 		return ;
 	}
 
