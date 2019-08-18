@@ -110,11 +110,11 @@ class Trie{
 			return;
 		}else{
 			Set<Character> keys = node.children.keySet();
-			boolean isFirstAdded = false;
+			//boolean isFirstAdded = false; 
 			for(Character c : keys){
-				if(node.children.get(c).isEndOfWord && !isFirstAdded){
+				if(node.children.get(c).isEndOfWord /*&& !isFirstAdded*/){
 					list.add(word+c);
-					isFirstAdded = true;
+					//isFirstAdded = true;
 				}
 				getWords(node.children.get(c), word+c,list);
 			}
