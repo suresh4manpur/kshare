@@ -1,0 +1,18 @@
+spring:
+  application:
+     name: kshare-EKart
+  datasource:
+    url: jdbc:mysql://localhost/kshare
+    username: root
+    password: root
+  jpa:
+    generate-ddl: true
+    
+server:
+  port: 8080
+  
+  error:
+    whitelabel:
+      enabled: true
+
+

@@ -31,7 +31,7 @@ public class CoinProblem {
         System.out.println( count(arr, length, 5)); 
 	}
 
-	private static void getCoinCounts(int[][] COINS, int[] currCounts,  int TARGET) {
+	private static void getCoinCounts(int[][] COINS, int[] currCounts, final int TARGET) {
 
 		int currentSum = 0;
 		for (int i = 0; i < currCounts.length; i++) {
