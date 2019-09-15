@@ -10,6 +10,9 @@ public class TrieDS {
 	public static void main(String[] args) {
 		Trie tr = new Trie();
 		tr.insert("go");
+		tr.insert("go to market");
+		tr.insert("go to bus");
+		tr.insert("go home");
 		tr.insert("gone");
 		tr.insert("goners");
 		tr.insert("tea");
@@ -23,27 +26,29 @@ public class TrieDS {
 		tr.insert("ra");
 		tr.insert("rat");
 		tr.insert("raa");
-		System.out.println("Go found => " + tr.search("go"));
+/*		System.out.println("Go found => " + tr.search("go"));
 		System.out.println("gone found => " + tr.search("gone"));
 		System.out.println("no found => " + tr.search("no"));
 		System.out.println("tea found => " + tr.search("tea"));
-		System.out.println("suresh found => " + tr.search("suresh"));
-		List<String> list = tr.searchWithPrefix("ra");
+		System.out.println("suresh found => " + tr.search("suresh"));*/
+		List<String> list = tr.searchWithPrefix("go");
 		for (String word : list) {
-			System.out.println("Words with prefix 'ra' are " + word);
+			System.out.println("Words with prefix 'go' are " + word);
 		}
-		tr.remove("tea");
-		tr.remove("rat");
-		System.out.println("-------");
+		tr.remove("go to bus");
 		
+		
+		System.out.println("-------");
+		/*
 		System.out.println("Go found => " + tr.search("go"));
 		System.out.println("gone found => " + tr.search("gone"));
 		System.out.println("no found => " + tr.search("no"));
 		System.out.println("tea found => " + tr.search("tea"));
 		System.out.println("suresh found => " + tr.search("suresh"));
-		List<String> list2 = tr.searchWithPrefix("ra");
+		*/
+		List<String> list2 = tr.searchWithPrefix("go");
 		for (String word : list2) {
-			System.out.println("Words with prefix 'ra' are " + word);
+			System.out.println("Words with prefix 'go' are " + word);
 		}
 
 	}
@@ -142,21 +147,21 @@ class Trie {
 		}
 	}
 
-	private void remove(TrieNode current, String word, int index) {
-		if(index+1 > word.length()){
+	private void remove(TrieNode current, String senetence, int index) {
+		if(index+1 > senetence.length()){
 			return;
 		}
-		char c = word.charAt(index);
+		char c = senetence.charAt(index);
 
 		if (current.children.containsKey(c)) {
-			remove(current.children.get(c), word, index + 1);
+			remove(current.children.get(c), senetence, index + 1); //did not return anything for char t,  c
 		}
 		TrieNode child = current.children.get(c);
 		if (child.children.isEmpty()) {
 			current.children.remove(c);
 		}else{
 			if(child.children.size() >0){
-				if(index == word.length()-1){
+				if(index == senetence.length()-1){
 					current.children.get(c).isEndOfWord = false;
 				}
 			}
@@ -165,9 +170,9 @@ class Trie {
 
 	}
 
-	public void remove(String word) {
-		if(search(word)){
-			 remove(root, word, 0);
+	public void remove(String senetence) {
+		if(search(senetence)){
+			 remove(root, senetence, 0);
 		}
 	}
 }

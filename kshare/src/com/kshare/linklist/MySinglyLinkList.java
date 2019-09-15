@@ -17,6 +17,10 @@ public class MySinglyLinkList {
 		 * list.addAtLast(1); list.addBefore(10, 1);
 		 */
 		list.show();
+		list.remove(7);
+		list.show();
+		
+
 	}
 }
 
@@ -83,18 +87,14 @@ class MyLinkList {
 	}
 
 	public Integer get(int index) {
-		if(index > size)
+		if (index > size)
 			throw new IndexOutOfBoundsException();
 		Node current = first;
-		while( index > 1 ){
+		while (index > 1) {
 			current = current.next;
 			index--;
 		}
-		return current.data ;
-		}
-
-	public void remove(int target) {
-
+		return current.data;
 	}
 
 	public void show() {
@@ -107,7 +107,6 @@ class MyLinkList {
 		}
 		System.out.println(strBuf.toString());
 	}
-	
 
 	public boolean isListEmpty() {
 		if (first == null) {
@@ -115,6 +114,56 @@ class MyLinkList {
 		} else {
 			return false;
 		}
+	}
+
+	public boolean remove(int k) {
+		if (isListEmpty()) {
+			throw new RuntimeException("list is empty!");
+		}
+		Node current = first;
+		boolean result = false;
+
+		// 1. first element
+/*		while(current!= null){
+			
+		}*/
+		if (first.data > k) {
+			current = current.next;
+			first.next = null;
+			first = current;
+		} else {
+			Node prev = current;
+			current = current.next;
+
+			while (current != null && current.data != k) {
+				prev = current;
+				current = current.next;
+			}
+
+			// did not match
+			if (current == null) {
+				result = false;
+			} else {
+				// matched
+				// 2. last element
+				if (current.next == null) {
+					prev.next = null;
+
+				} else {
+					// 3. mid element
+					prev.next = null;
+					Node temp = current.next;
+					current.next = null;
+					prev.next = temp;
+
+				}
+				size--;
+				result = true;
+			}
+
+		}
+
+		return result;
 	}
 
 }
