@@ -8,6 +8,9 @@ public class KshareEkartApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(KshareEkartApplication.class, args);
+		
+		
 	}
+
 
 }

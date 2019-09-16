@@ -2,6 +2,8 @@ package com.kshare.dto;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class AccountDTO implements Serializable{
 
 	private static final long serialVersionUID = 280173961099133353L;
@@ -13,7 +15,8 @@ public class AccountDTO implements Serializable{
 	private String emailId;
 	
 	private String userId;
-
+	
+	@JsonIgnore
 	private String password;
 	
 
