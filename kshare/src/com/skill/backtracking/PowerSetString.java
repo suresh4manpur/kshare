@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PowerSetString {
-
-    // str : Stores input string  
-    // curr : Stores current subset  
-    // index : Index in current subset, curr  
+ 
     static void powerSet(String str, int index, 
                             String curr)  
     { 
@@ -28,14 +25,8 @@ public class PowerSetString {
         { 
             curr += str.charAt(i); 
             powerSet(str, i, curr); 
-  
-            // Once all subsets beginning with  
-            // initial "curr" are printed, remove  
-            // last character to consider a different  
-            // prefix of subsets.  
-            System.out.println("curr before: "+curr);
+ 
             curr = curr.substring(0, curr.length() - 1); 
-            System.out.println("curr after: "+curr);
 
         } 
     } 
