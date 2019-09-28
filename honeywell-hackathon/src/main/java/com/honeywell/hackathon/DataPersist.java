@@ -1,4 +1,4 @@
-package com.honewell.hackathon;
+package com.honeywell.hackathon;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -8,7 +8,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
+import com.honeywell.hackathon.dto.Device;
+import com.honeywell.hackathon.exception.SensorException;
+
+@Repository
 public class DataPersist {
 
 	/**
@@ -37,7 +44,7 @@ public class DataPersist {
 		}
 		
 	}
-	public void DataInsert(ArrayList<Device> objArrDevice) {
+	public void dataInsert(List<Device> objArrDevice) {
 		// TODO Auto-generated method stub
 		
 		synchronized(this){
@@ -46,22 +53,34 @@ public class DataPersist {
 				while(objItr.hasNext()){
 					Device objDev = objItr.next();			
 					//String sql = "Insert into Device values((Select (MAX(ID)+1) from DEVICE),"+objDev.getStrDeviceType()+","+objDev.getStrDeviceID()+","+objDev.getStrName()+","+objDev.getdValue()+","+objDev.getDate()+")";
-					String sql = "Insert into Device values((Select (MAX(ID)+1) from DEVICE),"+objDev.getStrDeviceType()+","+objDev.getStrDeviceID()+","+objDev.getStrName()+","+objDev.getdValue()+","+objDev.getDate()+")";
-					String strSQL = "Insert into Device (DeviceType,DeviceID,Name,Value,Date)values(?,?,?,?)";
+					//String sql = "Insert into Device values((Select (MAX(ID)+1) from DEVICE),"+objDev.getStrDeviceType()+","+objDev.getStrDeviceID()+","+objDev.getStrName()+","+objDev.getdValue()+","+objDev.getDate()+")";
+					String strSQL = "Insert into Device (DeviceType,Name,Value,deviceUnit,createTime)values(?,?,?,?,?)";
 					//String query = "INSERT INTO Device ("(Select (MAX(ID)+1) from DEVICE),"+" DeviceType," + " DeviceID," + " Name," + " Value," + " Date") VALUES (?, ?, ?, ?, ?, ?)";						
 					try {
 						stmt = con.prepareStatement(strSQL);
-						stmt.setString(1, objDev.getStrDeviceType());
-						stmt.setString(2, objDev.getStrDeviceID());
-						stmt.setString(3, objDev.getStrName());
-						stmt.setDouble(4, objDev.getdValue());
-						stmt.setDate(4, (Date) objDev.getDate());
+						stmt.setString(1, objDev.getDeviceType());
+						stmt.setString(2, objDev.getName());
+						stmt.setDouble(3, objDev.getValue());
+						stmt.setString(4, objDev.getDataUnit());
+						stmt.setTimestamp(5, objDev.getCreationTime());
 						
-						stmt.executeQuery(sql);
+						stmt.executeQuery(strSQL);
 						con.commit();
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
+						throw new SensorException("Unable to insert data into database!");
+					}finally {
+						if(null != stmt ){
+							try {
+								stmt.close();
+							} catch (SQLException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+								throw new SensorException("Unable to close the connection!");
+
+							};
+						}
 					}
 				}
 			}
