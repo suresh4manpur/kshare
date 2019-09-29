@@ -11,12 +11,13 @@ private double value;
 private String dataUnit;
 private Timestamp creationTime;
 
-public Device(String deviceType, String name, double value, Timestamp creationTime) {
+public Device(String deviceType, String name, double value, Timestamp creationTime,String dataUnit) {
 	super();
 	this.deviceType = deviceType;
 	this.name = name;
 	this.value = value;
 	this.creationTime = creationTime;
+	this.dataUnit = dataUnit;
 }
 
 public Device() {

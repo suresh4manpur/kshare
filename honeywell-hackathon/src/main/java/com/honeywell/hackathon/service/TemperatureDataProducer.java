@@ -22,7 +22,7 @@ public class TemperatureDataProducer implements Runnable{
 		Device device = null;
 		while(true) {
 			double value = getRandomDoubleBetweenRange(10,50);
-			device = new Device("TemperatureSensor", "Thermameter", value, new Timestamp(new Date().getTime()));
+			device = new Device("TemperatureSensor", "Thermameter", value, new Timestamp(new Date().getTime()),"Degree");
 			try {
 				queue.put(device);
 				Thread.currentThread().sleep(1000);

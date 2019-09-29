@@ -1,0 +1,23 @@
+
+#spring.datasource.initialization-mode=always
+# spring.datasource.x
+#spring.datasource.driver-class-name=org.h2.Driver
+#spring.datasource.url=jdbc:h2:mem:jpadb
+#spring.datasource.username=sa
+#spring.datasource.password=
+
+# hibernate.X
+#spring.jpa.hibernate.dialect=org.hibernate.dialect.H2Dialect
+
+#spring.jpa.generate-ddl=true
+
+#spring.jpa.hibernate.use-new-id-generator-mappings=true
+
+spring.h2.console.enabled=true
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.show-sql=true
+
+  datasource:
+    url: jdbc:mysql://localhost/jpa-data
+    username: root
+    password: root
