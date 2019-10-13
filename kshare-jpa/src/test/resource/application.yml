@@ -1,0 +1,35 @@
+spring:
+  application:
+     name: kshare-EKart
+     
+  h2:
+    console:
+      enabled: false
+      path: /h2-console
+     
+      
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    
+logging:
+  level:
+    org.springframework: ERROR
+    com.kshare: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d %p %c{1.} [%t] %m%n"
+  file: app.log
+
+
+
+server:
+  port: 8080
+  
+  error:
+    whitelabel:
+      enabled: true
+
+

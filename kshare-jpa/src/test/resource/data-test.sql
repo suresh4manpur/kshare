@@ -10,9 +10,7 @@ create table person
 );
 
 
---INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(1,  'Suresh', 'Gaya',sysdate());
---INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(2,  'James', 'New York',sysdate());
---INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(3,  'Pieter', 'Amsterdam',sysdate());
+
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(  'Suresh', 'Gaya',sysdate());
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(  'James', 'New York',sysdate());
 INSERT INTO PERSON (ID, NAME, LOCATION, BIRTH_DATE ) VALUES(  'Pieter', 'Amsterdam',sysdate());

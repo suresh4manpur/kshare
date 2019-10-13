@@ -1,6 +1,7 @@
 package com.honeywell.hackathon.dao;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.honeywell.hackathon.dto.Device;
@@ -11,5 +12,6 @@ public class SensorDao {
 		Connection con = SensorUtil.getConnection();
 		
 	String sql = "select avg(value), devicetype from device group by deviceType";	
+	return new ArrayList<Device>();
 	}
 }
