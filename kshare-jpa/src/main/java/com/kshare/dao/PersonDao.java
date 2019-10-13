@@ -41,4 +41,9 @@ public class PersonDao {
 	public List<Person> getPersons(String name, String location){
 		return personRepository.getPersons(name, location);
 	}
+	
+	public List<Person> getPersonByLocation(String location){
+		return personRepository.getPersonByLocation( location);
+	}
+	
 }

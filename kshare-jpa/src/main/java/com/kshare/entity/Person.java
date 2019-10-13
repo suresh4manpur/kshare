@@ -1,23 +1,33 @@
 package com.kshare.entity;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
-@Entity
+@Entity//(name = "Person_details1")
+//@Table(name = "person_details2")
 public class Person {
-
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	private Timestamp birth_date;
 	
 	private String location;
 	private String name;
+	
+	@OneToMany(mappedBy = "person", cascade = CascadeType.ALL)//(cascade = CascadeType.ALL)
+	//@JoinColumn(name = "PERSON_ID")
+	private List<Phone> phones = new ArrayList<Phone>();
 
 	public Person(Timestamp birth_date, String location, String name) {
 		super();
@@ -25,6 +35,7 @@ public class Person {
 		this.location = location;
 		this.name = name;
 	}
+
 
 	public Person() {
 		super();
@@ -69,6 +80,14 @@ public class Person {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public List<Phone> getPhones() {
+		return phones;
+	}
+
+	public void setPhones(List<Phone> phones) {
+		this.phones = phones;
 	}
 
 	@Override

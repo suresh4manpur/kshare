@@ -13,4 +13,10 @@ public interface PersonRepository extends JpaRepository<Person, Integer>{
 	
 	@Query("select p from Person p where p.name = ?1 and p.location = ?2")
 	public List<Person> getPersons(String name, String location);
+	
+	@Query(value = "select * from Person p where  p.location = ?1" , nativeQuery = true)
+	public List<Person> getPersonByLocation(String location);
+	
+	@Query(value = "select p, ph from Person p , Phone ph where p.id = ph.person.id and p.location = ?1" )
+	public List<Object[]> getPersonByLocationAndPerson(String location);
 }

@@ -11,19 +11,19 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class LoggingAspect {
-	final Logger log1 = LoggerFactory.getLogger(LoggingAspect.class);
+	 Logger log1 = null;
 	
     @Around("execution(public * com.kshare.dao..*(..))")
     public Object log(ProceedingJoinPoint pjp) throws Throwable {
-        final Logger log = LoggerFactory.getLogger(pjp.getTarget().getClass());
+        log1 = LoggerFactory.getLogger(pjp.getTarget().getClass());
         final Object[] args = pjp.getArgs();
         final String methodName = pjp.getSignature().getName();
 
-        log.debug("{}(): {}", methodName, args);
+        log1.debug("{}(): {}", methodName, args);
 
         final Object result = pjp.proceed();
 
-        log.debug("{}(): result={}", methodName, result);
+        log1.debug("{}(): result={}", methodName, result);
 
         return result;
     }
