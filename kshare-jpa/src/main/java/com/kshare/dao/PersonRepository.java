@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.kshare.entity.Person;
+import com.kshare.view.PersonPhoneView;
 
 public interface PersonRepository extends JpaRepository<Person, Integer>{
 	@Query("select p from Person p where p.name = ?1")
@@ -17,6 +18,10 @@ public interface PersonRepository extends JpaRepository<Person, Integer>{
 	@Query(value = "select * from Person p where  p.location = ?1" , nativeQuery = true)
 	public List<Person> getPersonByLocation(String location);
 	
-	@Query(value = "select p, ph from Person p , Phone ph where p.id = ph.person.id and p.location = ?1" )
-	public List<Object[]> getPersonByLocationAndPerson(String location);
+	@Query(value = "select new com.kshare.view.PersonPhoneView(p.id, p.name,ph.phoneNumber) from Person p left join p.phones ph" )
+	public List<PersonPhoneView> getPersonPhoneView();
+	
+	@Query(value = "select new com.kshare.view.PersonPhoneView(p.id, p.name,ph.phoneNumber) from Person p left join p.phones ph where p.location = ?1" )
+	public List<PersonPhoneView> getPersonPhoneViewByLocation(String location);
+
 }

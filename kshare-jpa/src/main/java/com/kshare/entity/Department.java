@@ -3,13 +3,15 @@ package com.kshare.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Column;
 import javax.persistence.Id;
 
 @Entity
 public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+	@Column(name = "dept_id")
+	private int id;
 	private String departmentCode;
 	private String name;
 
@@ -24,7 +26,7 @@ public class Department {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Department(long id, String departmentCode, String name) {
+	public Department(int id, String departmentCode, String name) {
 		super();
 		this.id = id;
 		this.departmentCode = departmentCode;
@@ -35,7 +37,7 @@ public class Department {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 

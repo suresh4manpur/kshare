@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,6 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.kshare.KshareJpaApplication;
 import com.kshare.entity.Person;
 import com.kshare.entity.Phone;
+import com.kshare.view.PersonPhoneView;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -26,31 +28,28 @@ import com.kshare.entity.Phone;
 public class PersonDaoTest {
 
 	protected Logger logger = LoggerFactory.getLogger(PersonDaoTest.class);
-	
+
 	@Autowired
-	private PersonDao personDao;
-	
+	private PersonRepository personDao;
+
 	@Autowired
 	PersonRepository personRepository;
-	
-	
 
 	@Test
-
 	@Order(value = 1)
 	public void whenInsertPerson_WhenLoadBykey_thenGetPerson() {
 		Person person = new Person(new Timestamp(new Date().getTime()), "location", "name");
-		Person responsePerson = personDao.addPerson(person);
+		Person responsePerson = personDao.save(person);
 		assertEquals("Perosn Name", "name", responsePerson.getName());
 		assertEquals("Perosn Location", "location", responsePerson.getLocation());
 
 	}
 
 	@Test
-
 	@Order(value = 2)
 	public void whenFindByName_thenReturnPerson() {
-		Person person = personDao.getPersonById(1);
+		Optional<Person> personOptional = personDao.findById(1);
+		Person person = personOptional.get();
 		assertEquals("Perosn Name", "Suresh", person.getName());
 		assertEquals("Person Id", 1, person.getId());
 	}
@@ -59,7 +58,7 @@ public class PersonDaoTest {
 
 	@Order(value = 3)
 	public void whenFindAllperson_thenReturnAllPerson_First() {
-		List<Person> persons = personDao.getAllPerson();
+		List<Person> persons = personDao.findAll();
 		assertEquals("whenFindAllperson_thenReturnAllPerson", 3, persons.size());
 	}
 
@@ -67,22 +66,26 @@ public class PersonDaoTest {
 
 	@Order(value = 4)
 	public void whenDeletePersonById_thenRecordBeDeleted() {
-		personDao.deletePersonById(4); // personDao.getPersonById(1);
+		//personDao.deletePersonById(4); 
+		personDao.deleteById(4);
+		// personDao.getPersonById(1);
 	}
 
 	@Test(expected = RuntimeException.class)
 
 	@Order(value = 5)
 	public void whenDeletePersonById_thenThrowException() {
-		personDao.deletePersonById(1);
-		personDao.getPersonById(1);
+		personDao.deleteById(1);
+
+		personDao.findById(1);
 	}
 
 	@Test
 
 	@Order(value = 6)
 	public void whenUseJPQL_thenGetListOfPerson() {
-		List<Person> persons = personDao.getPersonsByName("Suresh");
+
+		List<Person> persons = personDao.getPersonByName("Suresh");
 		assertEquals("Size test", 1, persons.size());
 	}
 
@@ -99,6 +102,7 @@ public class PersonDaoTest {
 	@Order(value = 8)
 	public void whenUseJPQL_thenGetPersonsByLocation() { //
 		personDao.addPerson(new Person(new Timestamp(new Date().getTime()), "Gaya", "Rajesh"));
+		
 		List<Person> persons = personDao.getPersonByLocation("Gaya");
 		assertEquals("whenUseJPQL_thenGetPersonsByLocation", 1, persons.size());
 
@@ -121,24 +125,47 @@ public class PersonDaoTest {
 				responsePerson.getPhones().get(1).getPhoneNumber());
 
 	}
-	
+
 	@Test
 	@Order(value = 10)
 	public void jpq_test1() {
-		personDao.addPerson(new Person(new Timestamp(new Date().getTime()), "Gaya", "Rajesh"));
+		personDao.addPerson(new Person(new Timestamp(new Date().getTime()), "Gaya", "Harish"));
 
-		Person person = new Person(1, new Timestamp(new Date().getTime()), "Manpur", "Anuj");
-		person.getPhones().add(new Phone("24352345425"));
-		person.getPhones().add(new Phone("11111111111"));
+		Person person = new Person(new Timestamp(new Date().getTime()), "Manpur", "Raghu");
+		person.getPhones().add(new Phone("11117777"));
+		person.getPhones().add(new Phone("22226666"));
 		personDao.addPerson(person);
-		
-		List<Object[]> list  = personRepository.getPersonByLocationAndPerson("Manpur");
-		for(Object[] ObjArr : list) {
-			logger.info("Person {}, Phone{}",ObjArr[0], ObjArr[1]);
-			System.out.println("Person : "+ObjArr[0]);
-			System.out.println("Phone : "+ObjArr[1]);
+
+		List<PersonPhoneView> list = personRepository.getPersonPhoneView();
+		for (PersonPhoneView view : list) {
+			logger.info("PersonView {}", view);
+
 		}
+
+	}
+	
+	@Test
+	@Order(value = 11)
+	public void jpq_test_by_location() {
+		personDao.addPerson(new Person(new Timestamp(new Date().getTime()), "Gaya", "Mahesh"));
+
+		Person person = new Person(new Timestamp(new Date().getTime()), "Gaya", "Devesh");
+		Phone p1= new Phone("9090909090");
+		Phone p2= new Phone("7070707070");
 		
+		p1.setPerson(person);
+		p2.setPerson(person);
+		
+		person.getPhones().add(p1);
+		person.getPhones().add(p2);
+		
+		personDao.addPerson(person);
+
+		List<PersonPhoneView> list = personRepository.getPersonPhoneViewByLocation("Gaya");
+		for (PersonPhoneView view : list) {
+			logger.info("PersonView {}", view);
+
+		}
 
 	}
 

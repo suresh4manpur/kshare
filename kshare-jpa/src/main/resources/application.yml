@@ -1,6 +1,6 @@
 spring:
   application:
-     name: kshare-EKart
+     name: kshare-jpa
      
   datasource:
     url: jdbc:mysql://localhost/jpa-db
@@ -10,7 +10,6 @@ spring:
   jpa:
     generate-ddl: true
     show-sql: true
-
     
     
 logging:
@@ -29,6 +28,6 @@ server:
   
   error:
     whitelabel:
-      enabled: true
+      enabled: false
 
 

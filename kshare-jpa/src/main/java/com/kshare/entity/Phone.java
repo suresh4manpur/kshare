@@ -1,6 +1,5 @@
 package com.kshare.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,9 +14,11 @@ public class Phone {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@ManyToOne//(cascade = CascadeType.ALL)
-	@JoinColumn(name = "PERSON_ID")
-	private Person person;
+	/*
+	 * @ManyToOne//(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinColumn(name = "PERSON_ID") private Person person;
+	 */
 
 	private String phoneNumber;
 
@@ -31,13 +32,11 @@ public class Phone {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public Person getPerson() {
-		return person;
-	}
-
-	public void setPerson(Person person) {
-		this.person = person;
-	}
+	/*
+	 * public Person getPerson() { return person; }
+	 * 
+	 * public void setPerson(Person person) { this.person = person; }
+	 */
 
 	public int getId() {
 		return id;

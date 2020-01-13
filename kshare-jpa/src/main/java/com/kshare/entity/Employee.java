@@ -1,7 +1,6 @@
 package com.kshare.entity;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -22,8 +21,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.MapKey;
-import javax.persistence.MapKeyColumn;
 import javax.persistence.MapKeyEnumerated;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -43,13 +40,13 @@ public class Employee {
 	@JoinColumn(name = "dept_id")
 	private Department department;
 
-
+    
 	@OneToOne(mappedBy = "epmployee")
 	// @JoinColumn(name="park_space_id")
 	private ParckingSpace parkingSpace;
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	  @JoinTable(name = "emp_proj", joinColumns = @JoinColumn(name = "emp_id"),
+	@JoinTable(name = "emp_proj", joinColumns = @JoinColumn(name = "emp_id"),
 	  inverseJoinColumns = @JoinColumn(name = "proj_id"))
 	private List<Project> projects = new ArrayList<Project>();
 	
