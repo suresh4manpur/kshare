@@ -1,83 +1,14 @@
-2020-01-13 09:26:26,582 INFO com.kshare.KshareJpaApplication [main] Starting KshareJpaApplication on DESKTOP-EGV9FPV with PID 18920 (E:\skillhouse\kshare\kshare-jpa\target\classes started by Suresh in E:\skillhouse\kshare\kshare-jpa)
-2020-01-13 09:26:26,593 DEBUG com.kshare.KshareJpaApplication [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
-2020-01-13 09:26:26,593 INFO com.kshare.KshareJpaApplication [main] No active profile set, falling back to default profiles: default
-2020-01-13 09:26:28,839 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
-2020-01-13 09:26:28,840 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.29]
-2020-01-13 09:26:28,977 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
-2020-01-13 09:26:29,151 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2020-01-13 09:26:29,285 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2020-01-13 09:26:29,485 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-01-13 09:26:29,556 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
-2020-01-13 09:26:29,683 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-01-13 09:26:29,805 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
-2020-01-13 09:26:30,476 INFO org.hibernate.tuple.PojoInstantiator [main] HHH000182: No default (no-argument) constructor for class: com.kshare.entity.Company (class must be instantiated by Interceptor)
-2020-01-13 09:26:31,106 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-01-13 09:26:32,749 INFO com.kshare.KshareJpaApplication [main] Started KshareJpaApplication in 7.038 seconds (JVM running for 8.656)
-2020-01-13 09:27:00,539 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-01-13 09:27:00,635 DEBUG com.kshare.KshareJpaApplication [http-nio-8080-exec-1] PersonControl. getPersonById().. entry
-2020-01-13 09:27:06,076 DEBUG com.kshare.KshareJpaApplication [http-nio-8080-exec-3] PersonControl. getPersonById().. entry
-2020-01-13 09:27:06,129 DEBUG com.kshare.KshareJpaApplication [http-nio-8080-exec-3] personDTO : Optional[Person [id=2, birth_date=2016-11-16 06:55:40.0, location=Gaya, name=James]]
-2020-01-13 09:27:12,888 DEBUG com.kshare.KshareJpaApplication [http-nio-8080-exec-4] PersonControl. getPersonById().. entry
-2020-01-13 09:27:12,894 DEBUG com.kshare.KshareJpaApplication [http-nio-8080-exec-4] personDTO : Optional[Person [id=1, birth_date=2016-11-16 06:55:40.0, location=Gaya, name=Suresh]]
-2020-01-13 09:33:03,737 DEBUG com.kshare.KshareJpaApplication [http-nio-8080-exec-9] PersonControl. getPersonById().. entry
-2020-01-13 09:33:03,744 DEBUG com.kshare.KshareJpaApplication [http-nio-8080-exec-9] personDTO : Optional[Person [id=1, birth_date=2016-11-16 06:55:40.0, location=Gaya, name=Suresh]]
-2020-01-13 09:41:48,685 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(18)-127.0.0.1] HikariPool-1 - Shutdown initiated...
-2020-01-13 09:41:48,697 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(18)-127.0.0.1] HikariPool-1 - Shutdown completed.
-2020-01-13 09:42:03,768 INFO com.kshare.KshareJpaApplication [main] Starting KshareJpaApplication on DESKTOP-EGV9FPV with PID 3112 (E:\skillhouse\kshare\kshare-jpa\target\classes started by Suresh in E:\skillhouse\kshare\kshare-jpa)
-2020-01-13 09:42:03,778 DEBUG com.kshare.KshareJpaApplication [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
-2020-01-13 09:42:03,779 INFO com.kshare.KshareJpaApplication [main] No active profile set, falling back to default profiles: default
-2020-01-13 09:42:05,407 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
-2020-01-13 09:42:05,407 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.29]
-2020-01-13 09:42:05,536 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
-2020-01-13 09:42:05,714 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2020-01-13 09:42:05,843 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2020-01-13 09:42:06,045 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-01-13 09:42:06,121 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
-2020-01-13 09:42:06,249 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-01-13 09:42:06,360 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
-2020-01-13 09:42:07,102 INFO org.hibernate.tuple.PojoInstantiator [main] HHH000182: No default (no-argument) constructor for class: com.kshare.entity.Company (class must be instantiated by Interceptor)
-2020-01-13 09:42:07,756 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-01-13 09:42:09,346 INFO com.kshare.KshareJpaApplication [main] Started KshareJpaApplication in 6.207 seconds (JVM running for 7.896)
-2020-01-13 09:43:01,590 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-01-13 09:43:01,654 DEBUG com.kshare.KshareJpaApplication [http-nio-8080-exec-2] PersonControl. getPersonById().. entry
-2020-01-13 09:43:01,745 DEBUG com.kshare.KshareJpaApplication [http-nio-8080-exec-2] personDTO : Optional[Person [id=1, birth_date=2016-11-16 06:55:40.0, location=Gaya, name=Suresh]]
-2020-01-13 09:48:35,698 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(12)-127.0.0.1] HikariPool-1 - Shutdown initiated...
-2020-01-13 09:48:35,707 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(12)-127.0.0.1] HikariPool-1 - Shutdown completed.
-2020-01-13 09:48:49,699 INFO com.kshare.KshareJpaApplication [main] Starting KshareJpaApplication on DESKTOP-EGV9FPV with PID 17988 (E:\skillhouse\kshare\kshare-jpa\target\classes started by Suresh in E:\skillhouse\kshare\kshare-jpa)
-2020-01-13 09:48:49,702 DEBUG com.kshare.KshareJpaApplication [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
-2020-01-13 09:48:49,703 INFO com.kshare.KshareJpaApplication [main] No active profile set, falling back to default profiles: default
-2020-01-13 09:48:51,356 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
-2020-01-13 09:48:51,356 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.29]
-2020-01-13 09:48:51,486 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
-2020-01-13 09:48:51,687 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2020-01-13 09:48:51,869 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2020-01-13 09:48:52,096 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-01-13 09:48:52,174 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
-2020-01-13 09:48:52,303 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-01-13 09:48:52,420 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
-2020-01-13 09:48:53,229 INFO org.hibernate.tuple.PojoInstantiator [main] HHH000182: No default (no-argument) constructor for class: com.kshare.entity.Company (class must be instantiated by Interceptor)
-2020-01-13 09:48:53,851 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-01-13 09:48:55,402 INFO com.kshare.KshareJpaApplication [main] Started KshareJpaApplication in 6.269 seconds (JVM running for 7.959)
-2020-01-13 09:49:36,030 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-01-13 09:51:33,359 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(9)-127.0.0.1] HikariPool-1 - Shutdown initiated...
-2020-01-13 09:51:33,374 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(9)-127.0.0.1] HikariPool-1 - Shutdown completed.
-2020-01-13 09:53:46,507 INFO com.kshare.KshareJpaApplication [main] Starting KshareJpaApplication on DESKTOP-EGV9FPV with PID 19168 (E:\skillhouse\kshare\kshare-jpa\target\classes started by Suresh in E:\skillhouse\kshare\kshare-jpa)
-2020-01-13 09:53:46,511 DEBUG com.kshare.KshareJpaApplication [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
-2020-01-13 09:53:46,511 INFO com.kshare.KshareJpaApplication [main] No active profile set, falling back to default profiles: default
-2020-01-13 09:53:48,011 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
-2020-01-13 09:53:48,011 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.29]
-2020-01-13 09:53:48,139 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
-2020-01-13 09:53:48,308 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
-2020-01-13 09:53:48,434 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
-2020-01-13 09:53:48,635 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-01-13 09:53:48,704 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
-2020-01-13 09:53:48,823 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-01-13 09:53:48,932 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
-2020-01-13 09:53:49,573 INFO org.hibernate.tuple.PojoInstantiator [main] HHH000182: No default (no-argument) constructor for class: com.kshare.entity.Company (class must be instantiated by Interceptor)
-2020-01-13 09:53:50,115 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-01-13 09:53:51,441 INFO com.kshare.KshareJpaApplication [main] Started KshareJpaApplication in 5.494 seconds (JVM running for 7.134)
-2020-01-13 09:54:34,778 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2020-01-13 09:55:15,581 DEBUG com.kshare.KshareJpaApplication [http-nio-8080-exec-3] PersonControl. getPersonById().. entry
-2020-01-13 09:55:15,641 DEBUG com.kshare.KshareJpaApplication [http-nio-8080-exec-3] personDTO : Optional[Person [id=6, birth_date=2020-11-16 06:55:40.0, location=chakand, name=Amar]]
-2020-01-13 09:56:21,914 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(8)-127.0.0.1] HikariPool-1 - Shutdown initiated...
-2020-01-13 09:56:21,922 INFO com.zaxxer.hikari.HikariDataSource [RMI TCP Connection(8)-127.0.0.1] HikariPool-1 - Shutdown completed.
+2020-03-13 01:35:20,111 INFO com.kshare.dao.PersonDaoTest [main] Starting PersonDaoTest on DESKTOP-EGV9FPV with PID 14728 (started by Suresh in E:\kshare-jpa\kshare-jpa)
+2020-03-13 01:35:20,227 DEBUG com.kshare.dao.PersonDaoTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-03-13 01:35:20,235 INFO com.kshare.dao.PersonDaoTest [main] No active profile set, falling back to default profiles: default
+2020-03-13 01:35:25,088 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-03-13 01:35:25,246 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-03-13 01:35:25,664 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-03-13 01:35:26,014 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-03-13 01:35:27,903 INFO org.hibernate.tuple.PojoInstantiator [main] HHH000182: No default (no-argument) constructor for class: com.kshare.entity.Company (class must be instantiated by Interceptor)
+2020-03-13 01:35:28,848 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-03-13 01:35:30,671 INFO com.kshare.dao.PersonDaoTest [main] Started PersonDaoTest in 13.733 seconds (JVM running for 18.037)
+2020-03-13 01:35:31,120 INFO org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2020-03-13 01:35:31,150 ERROR org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000478: Unsuccessful: drop table department if exists
+2020-03-13 01:35:31,157 ERROR org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000478: Unsuccessful: drop table employee if exists
+2020-03-13 01:35:31,159 ERROR org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000478: Unsuccessful: drop table person if exists

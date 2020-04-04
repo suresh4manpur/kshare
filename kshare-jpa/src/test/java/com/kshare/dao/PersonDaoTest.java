@@ -101,8 +101,8 @@ public class PersonDaoTest {
 
 	@Order(value = 8)
 	public void whenUseJPQL_thenGetPersonsByLocation() { //
-		personDao.addPerson(new Person(new Timestamp(new Date().getTime()), "Gaya", "Rajesh"));
-		
+		personDao.save(new Person(new Timestamp(new Date().getTime()), "Gaya", "Rajesh"));
+
 		List<Person> persons = personDao.getPersonByLocation("Gaya");
 		assertEquals("whenUseJPQL_thenGetPersonsByLocation", 1, persons.size());
 
@@ -112,12 +112,12 @@ public class PersonDaoTest {
 
 	@Order(value = 9)
 	public void whenPersonWithPhones_thenGetPersonsWithPhoneGetsCreated() { //
-		personDao.addPerson(new Person(new Timestamp(new Date().getTime()), "Gaya", "Rajesh"));
+		personDao.save(new Person(new Timestamp(new Date().getTime()), "Gaya", "Rajesh"));
 
 		Person person = new Person(1, new Timestamp(new Date().getTime()), "Manpur", "Anuj");
 		person.getPhones().add(new Phone("24352345425"));
 		person.getPhones().add(new Phone("11111111111"));
-		Person responsePerson = personDao.addPerson(person);
+		Person responsePerson = personDao.save(person);
 
 		assertEquals("whenUseJPQL_thenGetPersonsByLocation", "24352345425",
 				responsePerson.getPhones().get(0).getPhoneNumber());
@@ -129,12 +129,12 @@ public class PersonDaoTest {
 	@Test
 	@Order(value = 10)
 	public void jpq_test1() {
-		personDao.addPerson(new Person(new Timestamp(new Date().getTime()), "Gaya", "Harish"));
+		personDao.save(new Person(new Timestamp(new Date().getTime()), "Gaya", "Harish"));
 
 		Person person = new Person(new Timestamp(new Date().getTime()), "Manpur", "Raghu");
 		person.getPhones().add(new Phone("11117777"));
 		person.getPhones().add(new Phone("22226666"));
-		personDao.addPerson(person);
+		personDao.save(person);
 
 		List<PersonPhoneView> list = personRepository.getPersonPhoneView();
 		for (PersonPhoneView view : list) {
@@ -147,7 +147,7 @@ public class PersonDaoTest {
 	@Test
 	@Order(value = 11)
 	public void jpq_test_by_location() {
-		personDao.addPerson(new Person(new Timestamp(new Date().getTime()), "Gaya", "Mahesh"));
+		personDao.save(new Person(new Timestamp(new Date().getTime()), "Gaya", "Mahesh"));
 
 		Person person = new Person(new Timestamp(new Date().getTime()), "Gaya", "Devesh");
 		Phone p1= new Phone("9090909090");
@@ -159,7 +159,7 @@ public class PersonDaoTest {
 		person.getPhones().add(p1);
 		person.getPhones().add(p2);
 		
-		personDao.addPerson(person);
+		personDao.save(person);
 
 		List<PersonPhoneView> list = personRepository.getPersonPhoneViewByLocation("Gaya");
 		for (PersonPhoneView view : list) {
