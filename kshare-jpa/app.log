@@ -1,14 +1,20 @@
-2020-03-13 01:35:20,111 INFO com.kshare.dao.PersonDaoTest [main] Starting PersonDaoTest on DESKTOP-EGV9FPV with PID 14728 (started by Suresh in E:\kshare-jpa\kshare-jpa)
-2020-03-13 01:35:20,227 DEBUG com.kshare.dao.PersonDaoTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
-2020-03-13 01:35:20,235 INFO com.kshare.dao.PersonDaoTest [main] No active profile set, falling back to default profiles: default
-2020-03-13 01:35:25,088 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
-2020-03-13 01:35:25,246 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
-2020-03-13 01:35:25,664 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2020-03-13 01:35:26,014 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2020-03-13 01:35:27,903 INFO org.hibernate.tuple.PojoInstantiator [main] HHH000182: No default (no-argument) constructor for class: com.kshare.entity.Company (class must be instantiated by Interceptor)
-2020-03-13 01:35:28,848 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2020-03-13 01:35:30,671 INFO com.kshare.dao.PersonDaoTest [main] Started PersonDaoTest in 13.733 seconds (JVM running for 18.037)
-2020-03-13 01:35:31,120 INFO org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
-2020-03-13 01:35:31,150 ERROR org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000478: Unsuccessful: drop table department if exists
-2020-03-13 01:35:31,157 ERROR org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000478: Unsuccessful: drop table employee if exists
-2020-03-13 01:35:31,159 ERROR org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000478: Unsuccessful: drop table person if exists
+2020-04-11 22:07:41,782 INFO com.kshare.dao.PersonDaoTest [main] Starting PersonDaoTest on DESKTOP-EGV9FPV with PID 10652 (started by Suresh in E:\kshare-jpa\kshare-jpa)
+2020-04-11 22:07:41,798 DEBUG com.kshare.dao.PersonDaoTest [main] Running with Spring Boot v2.2.2.RELEASE, Spring v5.2.2.RELEASE
+2020-04-11 22:07:41,798 INFO com.kshare.dao.PersonDaoTest [main] No active profile set, falling back to default profiles: default
+2020-04-11 22:07:45,798 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-04-11 22:07:45,923 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.9.Final}
+2020-04-11 22:07:46,323 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-04-11 22:07:46,720 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-04-11 22:07:48,048 INFO org.hibernate.tuple.PojoInstantiator [main] HHH000182: No default (no-argument) constructor for class: com.kshare.entity.Company (class must be instantiated by Interceptor)
+2020-04-11 22:07:48,999 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-04-11 22:07:50,788 INFO com.kshare.dao.PersonDaoTest [main] Started PersonDaoTest in 10.526 seconds (JVM running for 14.852)
+2020-04-11 22:07:51,413 INFO com.kshare.dao.PersonDaoTest [main] PersonView PersonPhoneView [personId=1, name=Mahesh, phoneNumber=null]
+2020-04-11 22:07:51,413 INFO com.kshare.dao.PersonDaoTest [main] PersonView PersonPhoneView [personId=2, name=Devesh, phoneNumber=9090909090]
+2020-04-11 22:07:51,413 INFO com.kshare.dao.PersonDaoTest [main] PersonView PersonPhoneView [personId=2, name=Devesh, phoneNumber=7070707070]
+2020-04-11 22:07:51,445 INFO com.kshare.dao.PersonDaoTest [main] PersonView PersonPhoneView [personId=3, name=Harish, phoneNumber=null]
+2020-04-11 22:07:51,445 INFO com.kshare.dao.PersonDaoTest [main] PersonView PersonPhoneView [personId=4, name=Raghu, phoneNumber=11117777]
+2020-04-11 22:07:51,445 INFO com.kshare.dao.PersonDaoTest [main] PersonView PersonPhoneView [personId=4, name=Raghu, phoneNumber=22226666]
+2020-04-11 22:07:51,801 INFO org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2020-04-11 22:07:51,832 ERROR org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000478: Unsuccessful: drop table department if exists
+2020-04-11 22:07:51,847 ERROR org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000478: Unsuccessful: drop table employee if exists
+2020-04-11 22:07:51,847 ERROR org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000478: Unsuccessful: drop table person if exists
