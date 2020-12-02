@@ -2,21 +2,20 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.concurrent.Executors;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import javax.management.Query;
 
 public class GraphDFS {
 	public static void main(String[] args) {
-		GraphAdjacencyList graph = new GraphAdjacencyList(7);
-		graph.addVertex(1, 2);
-		graph.addVertex(2, 6);
-		graph.addVertex(1, 3);
-		graph.addVertex(3, 4);
-		graph.addVertex(4, 2);
-		graph.addVertex(4, 5);
-		//graph.dfs(3);
-		graph.bfs(1);
+		/*
+		 * Executors
+		 * 
+		 * GraphAdjacencyList graph = new GraphAdjacencyList(7); graph.addVertex(1, 2);
+		 * graph.addVertex(2, 6); graph.addVertex(1, 3); graph.addVertex(3, 4);
+		 * graph.addVertex(4, 2); graph.addVertex(4, 5); //graph.dfs(3); graph.bfs(1);
+		 */
 	}
 }
 
